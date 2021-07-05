@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+ {% if request.user.is_superuser %}
+  <h1> You Are Super_User </h1>
+  <br>
+  <a class="btn btn-outline-primary" href="{% url 'add-user' %}">  Add User </a>
+  {% else %}
+  <h1> You Are Not A SuperUser Only SuperUser Can Add User. </h1>
+  <a class="btn btn-outline-primary" href="{% url 'login' %}"> login </a>
+  {% endif %}
+
+{% endblock %}
